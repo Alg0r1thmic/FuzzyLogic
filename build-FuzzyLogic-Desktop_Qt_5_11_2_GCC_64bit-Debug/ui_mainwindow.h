@@ -11,8 +11,12 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -25,6 +29,18 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QCustomPlot *customPlot;
+    QPushButton *pushButton;
+    QWidget *widget;
+    QGridLayout *gridLayout;
+    QLabel *label;
+    QLabel *label_2;
+    QLabel *label_3;
+    QLabel *label_4;
+    QLabel *label_5;
+    QLineEdit *inputXN;
+    QLineEdit *inputYN;
+    QLineEdit *inputX;
+    QLineEdit *inputY;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -43,7 +59,63 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         customPlot = new QCustomPlot(centralWidget);
         customPlot->setObjectName(QStringLiteral("customPlot"));
-        customPlot->setGeometry(QRect(40, 50, 741, 441));
+        customPlot->setGeometry(QRect(40, 110, 741, 441));
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(220, 90, 80, 20));
+        widget = new QWidget(centralWidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(40, 21, 446, 60));
+        gridLayout = new QGridLayout(widget);
+        gridLayout->setSpacing(6);
+        gridLayout->setContentsMargins(11, 11, 11, 11);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setContentsMargins(0, 0, 0, 0);
+        label = new QLabel(widget);
+        label->setObjectName(QStringLiteral("label"));
+
+        gridLayout->addWidget(label, 0, 0, 1, 1);
+
+        label_2 = new QLabel(widget);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        gridLayout->addWidget(label_2, 1, 0, 1, 1);
+
+        label_3 = new QLabel(widget);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        gridLayout->addWidget(label_3, 1, 1, 1, 1);
+
+        label_4 = new QLabel(widget);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        gridLayout->addWidget(label_4, 1, 2, 1, 1);
+
+        label_5 = new QLabel(widget);
+        label_5->setObjectName(QStringLiteral("label_5"));
+
+        gridLayout->addWidget(label_5, 1, 3, 1, 1);
+
+        inputXN = new QLineEdit(widget);
+        inputXN->setObjectName(QStringLiteral("inputXN"));
+
+        gridLayout->addWidget(inputXN, 2, 0, 1, 1);
+
+        inputYN = new QLineEdit(widget);
+        inputYN->setObjectName(QStringLiteral("inputYN"));
+
+        gridLayout->addWidget(inputYN, 2, 1, 1, 1);
+
+        inputX = new QLineEdit(widget);
+        inputX->setObjectName(QStringLiteral("inputX"));
+
+        gridLayout->addWidget(inputX, 2, 2, 1, 1);
+
+        inputY = new QLineEdit(widget);
+        inputY->setObjectName(QStringLiteral("inputY"));
+
+        gridLayout->addWidget(inputY, 2, 3, 1, 1);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -64,6 +136,12 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
+        pushButton->setText(QApplication::translate("MainWindow", "OK", nullptr));
+        label->setText(QApplication::translate("MainWindow", "Set configurations", nullptr));
+        label_2->setText(QApplication::translate("MainWindow", "-X", nullptr));
+        label_3->setText(QApplication::translate("MainWindow", "-Y", nullptr));
+        label_4->setText(QApplication::translate("MainWindow", "X", nullptr));
+        label_5->setText(QApplication::translate("MainWindow", "Y", nullptr));
     } // retranslateUi
 
 };

@@ -7,7 +7,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    setupDemo(0);
 }
 
 MainWindow::~MainWindow()
@@ -32,7 +31,16 @@ void MainWindow::setupQuadraticDemo(QCustomPlot *customPlot)
     customPlot->xAxis->setLabel("x");
     customPlot->yAxis->setLabel("y");
     // set axes ranges, so we see all data:
-    customPlot->xAxis->setRange(-5, 5);
-    customPlot->yAxis->setRange(0, 5);
+    customPlot->xAxis->setRange(this->xP, this->xN);
+    customPlot->yAxis->setRange(this->yP, this->yN);
 
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    this->xP=ui->inputX->text().toInt();
+    this->yP=ui->inputY->text().toInt();
+    this->xN=ui->inputXN->text().toInt();
+    this->yN=ui->inputYN->text().toInt();
+    setupDemo(0);
 }

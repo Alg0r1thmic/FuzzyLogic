@@ -16,10 +16,15 @@ public:
     ~MainWindow();
     void setupDemo(int demoIndex);
     void setupQuadraticDemo(QCustomPlot *customPlot);
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString demoName;
     int currentDemoIndex;
+    int xP,yP,xN,yN;
+
 };
 
 #endif // MAINWINDOW_H
