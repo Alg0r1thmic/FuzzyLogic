@@ -17,6 +17,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
@@ -76,6 +77,45 @@ public:
     QLabel *label_6;
     QSpacerItem *horizontalSpacer_4;
     QSpacerItem *verticalSpacer;
+    QWidget *widget;
+    QWidget *widget1;
+    QGridLayout *gridLayout_6;
+    QLabel *label_8;
+    QSlider *horizontalSlider;
+    QLabel *label_9;
+    QSlider *horizontalSlider_3;
+    QLabel *label_10;
+    QSlider *horizontalSlider_2;
+    QLabel *label_12;
+    QSlider *horizontalSlider_5;
+    QWidget *widget2;
+    QGridLayout *gridLayout_8;
+    QLineEdit *aProgressBar;
+    QLineEdit *bProgreesBar;
+    QLineEdit *cProgressBar;
+    QLineEdit *dProgressBar;
+    QWidget *widget3;
+    QGridLayout *gridLayout_15;
+    QGridLayout *gridLayout_12;
+    QLabel *label_17;
+    QLineEdit *lineEdit_2;
+    QLabel *label_18;
+    QLineEdit *lineEdit_3;
+    QGridLayout *gridLayout_13;
+    QLabel *label_19;
+    QLineEdit *lineEdit_4;
+    QLabel *label_20;
+    QLineEdit *lineEdit_5;
+    QGridLayout *gridLayout_14;
+    QLabel *label_21;
+    QLineEdit *lineEdit_6;
+    QLabel *label_22;
+    QLineEdit *lineEdit_7;
+    QWidget *widget4;
+    QGridLayout *gridLayout_16;
+    QLabel *label_16;
+    QLineEdit *lineEdit;
+    QLineEdit *lineEdit_8;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -97,10 +137,10 @@ public:
         customPlot->setGeometry(QRect(40, 140, 811, 411));
         label_7 = new QLabel(centralWidget);
         label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setGeometry(QRect(1040, 430, 49, 14));
+        label_7->setGeometry(QRect(1110, 450, 49, 14));
         layoutWidget = new QWidget(centralWidget);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(860, 140, 491, 291));
+        layoutWidget->setGeometry(QRect(922, 140, 503, 274));
         gridLayout_3 = new QGridLayout(layoutWidget);
         gridLayout_3->setSpacing(6);
         gridLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -315,6 +355,198 @@ public:
 
         gridLayout_5->addItem(verticalSpacer, 2, 2, 1, 1);
 
+        widget = new QWidget(centralWidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(60, 589, 791, 121));
+        widget1 = new QWidget(widget);
+        widget1->setObjectName(QStringLiteral("widget1"));
+        widget1->setGeometry(QRect(10, 13, 671, 91));
+        gridLayout_6 = new QGridLayout(widget1);
+        gridLayout_6->setSpacing(6);
+        gridLayout_6->setContentsMargins(11, 11, 11, 11);
+        gridLayout_6->setObjectName(QStringLiteral("gridLayout_6"));
+        gridLayout_6->setContentsMargins(0, 0, 0, 0);
+        label_8 = new QLabel(widget1);
+        label_8->setObjectName(QStringLiteral("label_8"));
+
+        gridLayout_6->addWidget(label_8, 0, 0, 2, 2);
+
+        horizontalSlider = new QSlider(widget1);
+        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
+        horizontalSlider->setOrientation(Qt::Horizontal);
+
+        gridLayout_6->addWidget(horizontalSlider, 1, 1, 1, 1);
+
+        label_9 = new QLabel(widget1);
+        label_9->setObjectName(QStringLiteral("label_9"));
+
+        gridLayout_6->addWidget(label_9, 2, 0, 2, 2);
+
+        horizontalSlider_3 = new QSlider(widget1);
+        horizontalSlider_3->setObjectName(QStringLiteral("horizontalSlider_3"));
+        horizontalSlider_3->setOrientation(Qt::Horizontal);
+
+        gridLayout_6->addWidget(horizontalSlider_3, 3, 1, 1, 1);
+
+        label_10 = new QLabel(widget1);
+        label_10->setObjectName(QStringLiteral("label_10"));
+
+        gridLayout_6->addWidget(label_10, 4, 0, 1, 1);
+
+        horizontalSlider_2 = new QSlider(widget1);
+        horizontalSlider_2->setObjectName(QStringLiteral("horizontalSlider_2"));
+        horizontalSlider_2->setOrientation(Qt::Horizontal);
+
+        gridLayout_6->addWidget(horizontalSlider_2, 4, 1, 1, 1);
+
+        label_12 = new QLabel(widget1);
+        label_12->setObjectName(QStringLiteral("label_12"));
+
+        gridLayout_6->addWidget(label_12, 5, 0, 2, 2);
+
+        horizontalSlider_5 = new QSlider(widget1);
+        horizontalSlider_5->setObjectName(QStringLiteral("horizontalSlider_5"));
+        horizontalSlider_5->setOrientation(Qt::Horizontal);
+
+        gridLayout_6->addWidget(horizontalSlider_5, 6, 1, 1, 1);
+
+        widget2 = new QWidget(widget);
+        widget2->setObjectName(QStringLiteral("widget2"));
+        widget2->setGeometry(QRect(680, 10, 41, 91));
+        gridLayout_8 = new QGridLayout(widget2);
+        gridLayout_8->setSpacing(6);
+        gridLayout_8->setContentsMargins(11, 11, 11, 11);
+        gridLayout_8->setObjectName(QStringLiteral("gridLayout_8"));
+        gridLayout_8->setContentsMargins(0, 0, 0, 0);
+        aProgressBar = new QLineEdit(widget2);
+        aProgressBar->setObjectName(QStringLiteral("aProgressBar"));
+
+        gridLayout_8->addWidget(aProgressBar, 0, 0, 1, 1);
+
+        bProgreesBar = new QLineEdit(widget2);
+        bProgreesBar->setObjectName(QStringLiteral("bProgreesBar"));
+
+        gridLayout_8->addWidget(bProgreesBar, 1, 0, 1, 1);
+
+        cProgressBar = new QLineEdit(widget2);
+        cProgressBar->setObjectName(QStringLiteral("cProgressBar"));
+
+        gridLayout_8->addWidget(cProgressBar, 2, 0, 1, 1);
+
+        dProgressBar = new QLineEdit(widget2);
+        dProgressBar->setObjectName(QStringLiteral("dProgressBar"));
+
+        gridLayout_8->addWidget(dProgressBar, 3, 0, 1, 1);
+
+        widget3 = new QWidget(centralWidget);
+        widget3->setObjectName(QStringLiteral("widget3"));
+        widget3->setGeometry(QRect(970, 500, 270, 82));
+        gridLayout_15 = new QGridLayout(widget3);
+        gridLayout_15->setSpacing(6);
+        gridLayout_15->setContentsMargins(11, 11, 11, 11);
+        gridLayout_15->setObjectName(QStringLiteral("gridLayout_15"));
+        gridLayout_15->setContentsMargins(0, 0, 0, 0);
+        gridLayout_12 = new QGridLayout();
+        gridLayout_12->setSpacing(6);
+        gridLayout_12->setObjectName(QStringLiteral("gridLayout_12"));
+        label_17 = new QLabel(widget3);
+        label_17->setObjectName(QStringLiteral("label_17"));
+
+        gridLayout_12->addWidget(label_17, 0, 0, 1, 1);
+
+        lineEdit_2 = new QLineEdit(widget3);
+        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
+
+        gridLayout_12->addWidget(lineEdit_2, 0, 1, 1, 1);
+
+        label_18 = new QLabel(widget3);
+        label_18->setObjectName(QStringLiteral("label_18"));
+
+        gridLayout_12->addWidget(label_18, 0, 2, 1, 1);
+
+        lineEdit_3 = new QLineEdit(widget3);
+        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
+
+        gridLayout_12->addWidget(lineEdit_3, 0, 3, 1, 1);
+
+
+        gridLayout_15->addLayout(gridLayout_12, 0, 0, 1, 1);
+
+        gridLayout_13 = new QGridLayout();
+        gridLayout_13->setSpacing(6);
+        gridLayout_13->setObjectName(QStringLiteral("gridLayout_13"));
+        label_19 = new QLabel(widget3);
+        label_19->setObjectName(QStringLiteral("label_19"));
+
+        gridLayout_13->addWidget(label_19, 0, 0, 1, 1);
+
+        lineEdit_4 = new QLineEdit(widget3);
+        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
+
+        gridLayout_13->addWidget(lineEdit_4, 0, 1, 1, 1);
+
+        label_20 = new QLabel(widget3);
+        label_20->setObjectName(QStringLiteral("label_20"));
+
+        gridLayout_13->addWidget(label_20, 0, 2, 1, 1);
+
+        lineEdit_5 = new QLineEdit(widget3);
+        lineEdit_5->setObjectName(QStringLiteral("lineEdit_5"));
+
+        gridLayout_13->addWidget(lineEdit_5, 0, 3, 1, 1);
+
+
+        gridLayout_15->addLayout(gridLayout_13, 1, 0, 1, 1);
+
+        gridLayout_14 = new QGridLayout();
+        gridLayout_14->setSpacing(6);
+        gridLayout_14->setObjectName(QStringLiteral("gridLayout_14"));
+        label_21 = new QLabel(widget3);
+        label_21->setObjectName(QStringLiteral("label_21"));
+
+        gridLayout_14->addWidget(label_21, 0, 0, 1, 1);
+
+        lineEdit_6 = new QLineEdit(widget3);
+        lineEdit_6->setObjectName(QStringLiteral("lineEdit_6"));
+
+        gridLayout_14->addWidget(lineEdit_6, 0, 1, 1, 1);
+
+        label_22 = new QLabel(widget3);
+        label_22->setObjectName(QStringLiteral("label_22"));
+
+        gridLayout_14->addWidget(label_22, 0, 2, 1, 1);
+
+        lineEdit_7 = new QLineEdit(widget3);
+        lineEdit_7->setObjectName(QStringLiteral("lineEdit_7"));
+
+        gridLayout_14->addWidget(lineEdit_7, 0, 3, 1, 1);
+
+
+        gridLayout_15->addLayout(gridLayout_14, 2, 0, 1, 1);
+
+        widget4 = new QWidget(centralWidget);
+        widget4->setObjectName(QStringLiteral("widget4"));
+        widget4->setGeometry(QRect(971, 580, 271, 24));
+        gridLayout_16 = new QGridLayout(widget4);
+        gridLayout_16->setSpacing(6);
+        gridLayout_16->setContentsMargins(11, 11, 11, 11);
+        gridLayout_16->setObjectName(QStringLiteral("gridLayout_16"));
+        gridLayout_16->setContentsMargins(0, 0, 0, 0);
+        label_16 = new QLabel(widget4);
+        label_16->setObjectName(QStringLiteral("label_16"));
+
+        gridLayout_16->addWidget(label_16, 0, 0, 1, 1);
+
+        lineEdit = new QLineEdit(widget4);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+
+        gridLayout_16->addWidget(lineEdit, 0, 1, 1, 1);
+
+        lineEdit_8 = new QLineEdit(widget4);
+        lineEdit_8->setObjectName(QStringLiteral("lineEdit_8"));
+
+        gridLayout_16->addWidget(lineEdit_8, 0, 2, 1, 1);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -335,7 +567,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        label_7->setText(QApplication::translate("MainWindow", "Rules", nullptr));
+        label_7->setText(QApplication::translate("MainWindow", "Reglas", nullptr));
         label_11->setText(QString());
         pushButton_5->setText(QApplication::translate("MainWindow", "Add", nullptr));
         label_13->setText(QString());
@@ -344,13 +576,24 @@ public:
         pushButton_8->setText(QApplication::translate("MainWindow", "Add", nullptr));
         label_15->setText(QString());
         pushButton_9->setText(QApplication::translate("MainWindow", "Add", nullptr));
-        label->setText(QApplication::translate("MainWindow", "Set configurations", nullptr));
+        label->setText(QApplication::translate("MainWindow", "Establecer configuraciones", nullptr));
         label_2->setText(QApplication::translate("MainWindow", "-X", nullptr));
         label_3->setText(QApplication::translate("MainWindow", "-Y", nullptr));
         label_4->setText(QApplication::translate("MainWindow", "X", nullptr));
         label_5->setText(QApplication::translate("MainWindow", "Y", nullptr));
         pushButton->setText(QApplication::translate("MainWindow", "OK", nullptr));
         label_6->setText(QApplication::translate("MainWindow", "Fuzzy Functions", nullptr));
+        label_8->setText(QApplication::translate("MainWindow", "a", nullptr));
+        label_9->setText(QApplication::translate("MainWindow", "b", nullptr));
+        label_10->setText(QApplication::translate("MainWindow", "c", nullptr));
+        label_12->setText(QApplication::translate("MainWindow", "d", nullptr));
+        label_17->setText(QApplication::translate("MainWindow", "IF", nullptr));
+        label_18->setText(QApplication::translate("MainWindow", "THEN", nullptr));
+        label_19->setText(QApplication::translate("MainWindow", "IF", nullptr));
+        label_20->setText(QApplication::translate("MainWindow", "THEN", nullptr));
+        label_21->setText(QApplication::translate("MainWindow", "IF", nullptr));
+        label_22->setText(QApplication::translate("MainWindow", "THEN", nullptr));
+        label_16->setText(QApplication::translate("MainWindow", "Datos de Entrada", nullptr));
     } // retranslateUi
 
 };
