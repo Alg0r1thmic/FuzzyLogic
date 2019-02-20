@@ -40,14 +40,34 @@ void MainWindow::setupDemo(int demoIndex)
 }
 void MainWindow::setupQuadraticDemo(QCustomPlot *customPlot)
 {
-    QVector<double> x(1001),y(1001);
-    for (int i=0; i<101; ++i)
-    {
-      x[i] = i/50.0 - 1; // x goes from -1 to 1
-      y[i] = x[i]*x[i];  // let's plot a quadratic function
-    }
     customPlot->addGraph();
-    customPlot->graph(0)->setData(x,y);
+    QPen redDotPen;
+    redDotPen.setStyle(Qt::DotLine);
+    redDotPen.setColor(QColor(170, 100, 100, 180));
+    redDotPen.setWidthF(2);
+    customPlot->graph(0)->setPen(redDotPen);
+    customPlot->graph(0)->setBrush(QBrush(QPixmap("./balboa.jpg"))); // fill with texture of specified image
+
+    customPlot->addGraph();
+    customPlot->graph(1)->setPen(QPen(Qt::red));
+
+    // activate channel fill for graph 0 towards graph 1:
+    customPlot->graph(0)->setChannelFillGraph(customPlot->graph(1));
+    QVector<double> x(10);
+    QVector<double> y0(250), y1(10);
+    for (int i=0; i<10; ++i)
+    {
+      // just playing with numbers, not much to learn here
+      x[i] = i;
+      y0[i] = 1+qExp(-x[i]*x[i]*0.8)*(x[i]*x[i]+x[i]);
+      y1[i] = 1;
+        cout << i << endl;
+    }
+
+    // pass data points to graphs:
+    //customPlot->graph(0)->setData(x, y0);
+    customPlot->graph(1)->setData(x, y1);
+
     customPlot->xAxis->setLabel("X");
     customPlot->yAxis->setLabel("Y");
     // set axes ranges, so we see all data:
@@ -55,7 +75,6 @@ void MainWindow::setupQuadraticDemo(QCustomPlot *customPlot)
     customPlot->yAxis->setRange(this->yP, this->yN);
 
 }
-
 void MainWindow::on_pushButton_clicked()
 {
     this->xP=ui->inputX->text().toInt();
