@@ -46,10 +46,10 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>920</x>
+      <x>860</x>
       <y>140</y>
-      <width>431</width>
-      <height>251</height>
+      <width>491</width>
+      <height>291</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_3">
@@ -84,7 +84,10 @@
        <item row="0" column="0" rowspan="3" colspan="2">
         <widget class="QLabel" name="label_11">
          <property name="text">
-          <string>Gamma</string>
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="res.qrc">:/images/functionGamma.png</pixmap>
          </property>
         </widget>
        </item>
@@ -128,7 +131,10 @@
        <item row="0" column="0" rowspan="3" colspan="2">
         <widget class="QLabel" name="label_13">
          <property name="text">
-          <string>l</string>
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="res.qrc">:/images/functionL.png</pixmap>
          </property>
         </widget>
        </item>
@@ -172,7 +178,10 @@
        <item row="0" column="0" rowspan="3" colspan="2">
         <widget class="QLabel" name="label_14">
          <property name="text">
-          <string>triangular</string>
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="res.qrc">:/images/functionTriangular.png</pixmap>
          </property>
         </widget>
        </item>
@@ -216,7 +225,10 @@
        <item row="0" column="0" rowspan="3" colspan="2">
         <widget class="QLabel" name="label_15">
          <property name="text">
-          <string>trapesoidal</string>
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="res.qrc">:/images/functionTrapesoidal.png</pixmap>
          </property>
         </widget>
        </item>
@@ -437,6 +449,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

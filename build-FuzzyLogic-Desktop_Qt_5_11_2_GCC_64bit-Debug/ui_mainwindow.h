@@ -100,7 +100,7 @@ public:
         label_7->setGeometry(QRect(1040, 430, 49, 14));
         layoutWidget = new QWidget(centralWidget);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(920, 140, 431, 251));
+        layoutWidget->setGeometry(QRect(860, 140, 491, 291));
         gridLayout_3 = new QGridLayout(layoutWidget);
         gridLayout_3->setSpacing(6);
         gridLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -119,6 +119,7 @@ public:
 
         label_11 = new QLabel(layoutWidget);
         label_11->setObjectName(QStringLiteral("label_11"));
+        label_11->setPixmap(QPixmap(QString::fromUtf8(":/images/functionGamma.png")));
 
         gridLayout_7->addWidget(label_11, 0, 0, 3, 2);
 
@@ -143,6 +144,7 @@ public:
 
         label_13 = new QLabel(layoutWidget);
         label_13->setObjectName(QStringLiteral("label_13"));
+        label_13->setPixmap(QPixmap(QString::fromUtf8(":/images/functionL.png")));
 
         gridLayout_9->addWidget(label_13, 0, 0, 3, 2);
 
@@ -167,6 +169,7 @@ public:
 
         label_14 = new QLabel(layoutWidget);
         label_14->setObjectName(QStringLiteral("label_14"));
+        label_14->setPixmap(QPixmap(QString::fromUtf8(":/images/functionTriangular.png")));
 
         gridLayout_10->addWidget(label_14, 0, 0, 3, 2);
 
@@ -191,6 +194,7 @@ public:
 
         label_15 = new QLabel(layoutWidget);
         label_15->setObjectName(QStringLiteral("label_15"));
+        label_15->setPixmap(QPixmap(QString::fromUtf8(":/images/functionTrapesoidal.png")));
 
         gridLayout_11->addWidget(label_15, 0, 0, 3, 2);
 
@@ -332,13 +336,13 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         label_7->setText(QApplication::translate("MainWindow", "Rules", nullptr));
-        label_11->setText(QApplication::translate("MainWindow", "Gamma", nullptr));
+        label_11->setText(QString());
         pushButton_5->setText(QApplication::translate("MainWindow", "Add", nullptr));
-        label_13->setText(QApplication::translate("MainWindow", "l", nullptr));
+        label_13->setText(QString());
         pushButton_7->setText(QApplication::translate("MainWindow", "Add", nullptr));
-        label_14->setText(QApplication::translate("MainWindow", "triangular", nullptr));
+        label_14->setText(QString());
         pushButton_8->setText(QApplication::translate("MainWindow", "Add", nullptr));
-        label_15->setText(QApplication::translate("MainWindow", "trapesoidal", nullptr));
+        label_15->setText(QString());
         pushButton_9->setText(QApplication::translate("MainWindow", "Add", nullptr));
         label->setText(QApplication::translate("MainWindow", "Set configurations", nullptr));
         label_2->setText(QApplication::translate("MainWindow", "-X", nullptr));

@@ -14,8 +14,10 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void setupForUser(QCustomPlot *customPlot);
     void setupDemo(int demoIndex);
     void setupQuadraticDemo(QCustomPlot *customPlot);
+    void setupGammaFunction(QCustomPlot *customPlot);
 private slots:
     void on_pushButton_clicked();
 

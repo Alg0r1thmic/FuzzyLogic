@@ -28,6 +28,16 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::setupForUser(QCustomPlot *customPlot)
+{
+    customPlot->xAxis->setLabel("X");
+    customPlot->yAxis->setLabel("Y");
+    // set axes ranges, so we see all data:
+    customPlot->xAxis->setRange(this->xP, this->xN);
+    customPlot->yAxis->setRange(this->yP, this->yN);
+
+}
 void MainWindow::setupDemo(int demoIndex)
 {
     switch (demoIndex) {
@@ -58,21 +68,23 @@ void MainWindow::setupQuadraticDemo(QCustomPlot *customPlot)
     for (int i=0; i<10; ++i)
     {
       // just playing with numbers, not much to learn here
-      x[i] = i;
-      y0[i] = 1+qExp(-x[i]*x[i]*0.8)*(x[i]*x[i]+x[i]);
-      y1[i] = 1;
-        cout << i << endl;
+        if(i<5)
+        {
+            x[i] = i;
+            y1[i] = 1;
+
+        }
+        else
+        {
+            x[i]=i;
+            y1[i]=i;
+        }
     }
 
     // pass data points to graphs:
     //customPlot->graph(0)->setData(x, y0);
     customPlot->graph(1)->setData(x, y1);
 
-    customPlot->xAxis->setLabel("X");
-    customPlot->yAxis->setLabel("Y");
-    // set axes ranges, so we see all data:
-    customPlot->xAxis->setRange(this->xP, this->xN);
-    customPlot->yAxis->setRange(this->yP, this->yN);
 
 }
 void MainWindow::on_pushButton_clicked()
@@ -81,12 +93,12 @@ void MainWindow::on_pushButton_clicked()
     this->yP=ui->inputY->text().toInt();
     this->xN=ui->inputXN->text().toInt();
     this->yN=ui->inputYN->text().toInt();
-    setupDemo(0);
+    setupForUser(ui->customPlot);
 }
 //add function gamma
 void MainWindow::on_pushButton_5_clicked()
 {
-    setupDemo(0);
+
 }
 //add function L
 void MainWindow::on_pushButton_7_clicked()

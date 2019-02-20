@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/functionTriangular.png</file>
+        <file>images/functionTrapesoidal.png</file>
+        <file>images/functionL.png</file>
+        <file>images/functionGamma.png</file>
+    </qresource>
+</RCC>
