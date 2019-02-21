@@ -47,7 +47,7 @@ private slots:
     void setupPIFunction();
 
     //---------------------------resize plots------------------
-   // void resizeFunctions();
+    //void resizeFunctions();
 
     //--------------------------------progress bar ------------------------
 

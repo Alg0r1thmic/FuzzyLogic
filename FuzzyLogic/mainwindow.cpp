@@ -11,10 +11,19 @@ MainWindow::MainWindow(QWidget *parent) :
     //set configurations
     ui->customPlot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectAxes |
                                     QCP::iSelectLegend | QCP::iSelectPlottables);
+    //ui->customPlot_2->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectAxes |QCP::iSelectLegend | QCP::iSelectPlottables);
     ui->customPlot->plotLayout()->insertRow(0);
-    QCPTextElement *title = new QCPTextElement(ui->customPlot, "Fuzzy Logic Interaction Example", QFont("sans", 17, QFont::Bold));
+    ui->customPlot_2->plotLayout()->insertRow(0);
+
+    QCPTextElement *title = new QCPTextElement(ui->customPlot, "Temperatura", QFont("sans", 17, QFont::Bold));
+    QCPTextElement *title1 = new QCPTextElement(ui->customPlot_2, "Results", QFont("sans", 17, QFont::Bold));
+
+
     ui->customPlot->plotLayout()->addElement(0, 0, title);
 
+    ui->customPlot_2->plotLayout()->addElement(0, 0, title1);
+    ui->customPlot_2->xAxis->setRange(0, 100);
+    ui->customPlot_2->yAxis->setRange(0, 1);
     //set font
     ui->customPlot->legend->setVisible(true);
     QFont legendFont = font();
@@ -190,11 +199,12 @@ void MainWindow::contextMenuRequest(QPoint pos)
 
   if (ui->customPlot->legend->selectTest(pos, false) >= 0) // context menu on legend requested
   {
+    /*
     menu->addAction("Move to top left", this, SLOT(moveLegend()))->setData((int)(Qt::AlignTop|Qt::AlignLeft));
     menu->addAction("Move to top center", this, SLOT(moveLegend()))->setData((int)(Qt::AlignTop|Qt::AlignHCenter));
     menu->addAction("Move to top right", this, SLOT(moveLegend()))->setData((int)(Qt::AlignTop|Qt::AlignRight));
     menu->addAction("Move to bottom right", this, SLOT(moveLegend()))->setData((int)(Qt::AlignBottom|Qt::AlignRight));
-    menu->addAction("Move to bottom left", this, SLOT(moveLegend()))->setData((int)(Qt::AlignBottom|Qt::AlignLeft));
+    menu->addAction("Move to bottom left", this, SLOT(moveLegend()))->setData((int)(Qt::AlignBottom|Qt::AlignLeft));*/
   } else  // general context menu on graphs requested
   {
     //menu->addAction("Add random graph", this, SLOT(addRandomGraph()));
@@ -321,6 +331,7 @@ void MainWindow::setupGammaFunction()
     graphPen.setWidthF(rand()/(double)RAND_MAX*2+1);
     ui->customPlot->graph()->setPen(graphPen);
     ui->customPlot->replot();
+
 }
 
 void MainWindow::setupLFunction()
@@ -329,27 +340,64 @@ void MainWindow::setupLFunction()
     QVector<double> x(3), y(3);// initialize with entries 0..100
     x[0]=0;
     y[0]=1;
-    x[1]=1;
+    x[1]=10;
     y[1]=1;
-    x[2]=2;
+    x[2]=20;
     y[2]=0;
-
-    // create graph and assign data to it:
-   /*
-    ui->customPlot->addGraph();
-    ui->customPlot->graph()->setName(QString("L function"));
-    ui->customPlot->graph(0)->setData(x, y);
-    ui->customPlot->replot();*/
-
-
     ui->customPlot->addGraph();
     ui->customPlot->graph()->setName(QString("New graph %1").arg(ui->customPlot->graphCount()-1));
     ui->customPlot->graph()->setData(x, y);
-
     QPen graphPen;
     graphPen.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
     graphPen.setWidthF(rand()/(double)RAND_MAX*2+1);
     ui->customPlot->graph()->setPen(graphPen);
+    ui->customPlot->replot();
+
+
+    //______________________________________________
+
+    QVector<double> x1(4), y1(4);// initialize with entries 0..100
+    x1[0]=10;
+    y1[0]=0;
+    x1[1]=17.5;
+    y1[1]=1;
+    x1[2]=25;
+    y1[2]=0;
+    x1[3]=30;
+    y1[3]=0;
+
+    // create graph and assign data to it:
+    ui->customPlot->addGraph();
+    ui->customPlot->graph()->setName(QString("New graph %1").arg(ui->customPlot->graphCount()-1));
+    ui->customPlot->graph()->setData(x1, y1);
+
+    QPen graphPen1;
+    graphPen1.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen1.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot->graph()->setPen(graphPen1);
+    ui->customPlot->replot();
+
+    //______________________________________________
+
+    QVector<double> x2(4), y2(4);// initialize with entries 0..100
+    x2[0]=20;
+    y2[0]=0;
+    x2[1]=25;
+    y2[1]=1;
+    x2[2]=30;
+    y2[2]=0;
+    x2[3]=40;
+    y2[3]=0;
+
+    // create graph and assign data to it:
+    ui->customPlot->addGraph();
+    ui->customPlot->graph()->setName(QString("New graph %1").arg(ui->customPlot->graphCount()-1));
+    ui->customPlot->graph()->setData(x2, y2);
+
+    QPen graphPen2;
+    graphPen2.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen2.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot->graph()->setPen(graphPen2);
     ui->customPlot->replot();
 }
 
@@ -450,8 +498,6 @@ void MainWindow::on_horizontalSlider_valueChanged(int value)
         y[2]=1;
         x[3]=value+2;
         y[3]=0;
-
-
         // create graph and assign data to it:
         ui->customPlot->selectedGraphs().first()->setData(x,y);
         //ui->customPlot->selectedGraphs().first()
@@ -475,7 +521,6 @@ void MainWindow::on_horizontalSlider_2_valueChanged(int value)
 
     QString s=QString::number(value);
     ui->cProgressBar->setText(s);
-    ui->cProgressBar->setText(s);
 }
 
 void MainWindow::on_horizontalSlider_5_valueChanged(int value)
@@ -483,5 +528,4 @@ void MainWindow::on_horizontalSlider_5_valueChanged(int value)
 
     QString s=QString::number(value);
     ui->dProgressBar->setText(s);
-    ui->cProgressBar->setText(s);
 }
