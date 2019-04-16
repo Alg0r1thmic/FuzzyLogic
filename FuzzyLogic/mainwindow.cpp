@@ -14,16 +14,23 @@ MainWindow::MainWindow(QWidget *parent) :
     //ui->customPlot_2->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectAxes |QCP::iSelectLegend | QCP::iSelectPlottables);
     ui->customPlot->plotLayout()->insertRow(0);
     ui->customPlot_2->plotLayout()->insertRow(0);
+    ui->customPlot_3->plotLayout()->insertRow(0);
 
     QCPTextElement *title = new QCPTextElement(ui->customPlot, "Temperatura", QFont("sans", 17, QFont::Bold));
     QCPTextElement *title1 = new QCPTextElement(ui->customPlot_2, "Results", QFont("sans", 17, QFont::Bold));
-
+    QCPTextElement *title2 = new QCPTextElement(ui->customPlot_3, "Velocidad", QFont("sans", 17, QFont::Bold));
 
     ui->customPlot->plotLayout()->addElement(0, 0, title);
 
     ui->customPlot_2->plotLayout()->addElement(0, 0, title1);
-    ui->customPlot_2->xAxis->setRange(0, 100);
+
+    ui->customPlot_3->plotLayout()->addElement(0, 0, title2);
+
+    ui->customPlot_2->xAxis->setRange(0, 400);
     ui->customPlot_2->yAxis->setRange(0, 1);
+
+    ui->customPlot_3->xAxis->setRange(0, 400);
+    ui->customPlot_3->yAxis->setRange(0, 1);
     //set font
     ui->customPlot->legend->setVisible(true);
     QFont legendFont = font();
@@ -31,26 +38,42 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->customPlot->legend->setFont(legendFont);
     ui->customPlot->legend->setSelectedFont(legendFont);
     ui->customPlot->legend->setSelectableParts(QCPLegend::spItems); // legend box shall not be selectable, only legend items
+    //set font1
+    ui->customPlot_3->legend->setVisible(true);
+    QFont legendFont1 = font();
+    legendFont1.setPointSize(10);
+    ui->customPlot_3->legend->setFont(legendFont1);
+    ui->customPlot_3->legend->setSelectedFont(legendFont1);
+    ui->customPlot_3->legend->setSelectableParts(QCPLegend::spItems); // legend box shall not be selectable, only legend items
 
 
     //connect diferents signal and slots
 
     // connect slot that ties some axis selections together (especially opposite axes):
     connect(ui->customPlot, SIGNAL(selectionChangedByUser()), this, SLOT(selectionChanged()));
+    connect(ui->customPlot_3, SIGNAL(selectionChangedByUser()), this, SLOT(selectionChanged()));
 
     // connect slots that takes care that when an axis is selected, only that direction can be dragged and zoomed:
     connect(ui->customPlot, SIGNAL(mousePress(QMouseEvent*)), this, SLOT(mousePress()));
     connect(ui->customPlot, SIGNAL(mouseWheel(QWheelEvent*)), this, SLOT(mouseWheel()));
-
+    //-----------------------------------------------------------
+    connect(ui->customPlot_3, SIGNAL(mousePress(QMouseEvent*)), this, SLOT(mousePress()));
+    connect(ui->customPlot_3, SIGNAL(mouseWheel(QWheelEvent*)), this, SLOT(mouseWheel()));
 
     // connect some interaction slots:
     connect(ui->customPlot, SIGNAL(axisDoubleClick(QCPAxis*,QCPAxis::SelectablePart,QMouseEvent*)), this, SLOT(axisLabelDoubleClick(QCPAxis*,QCPAxis::SelectablePart)));
     connect(ui->customPlot, SIGNAL(legendDoubleClick(QCPLegend*,QCPAbstractLegendItem*,QMouseEvent*)), this, SLOT(legendDoubleClick(QCPLegend*,QCPAbstractLegendItem*)));
     connect(title, SIGNAL(doubleClicked(QMouseEvent*)), this, SLOT(titleDoubleClick(QMouseEvent*)));
+    // connect some interaction slots:
+    connect(ui->customPlot_3, SIGNAL(axisDoubleClick(QCPAxis*,QCPAxis::SelectablePart,QMouseEvent*)), this, SLOT(axisLabelDoubleClick(QCPAxis*,QCPAxis::SelectablePart)));
+    connect(ui->customPlot_3, SIGNAL(legendDoubleClick(QCPLegend*,QCPAbstractLegendItem*,QMouseEvent*)), this, SLOT(legendDoubleClick(QCPLegend*,QCPAbstractLegendItem*)));
 
     // setup policy and connect slot for context menu popup:
     ui->customPlot->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(ui->customPlot, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequest(QPoint)));
+    // setup policy and connect slot for context menu popup:
+    ui->customPlot_3->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(ui->customPlot_3, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequest(QPoint)));
 
 }
 
@@ -100,7 +123,7 @@ void MainWindow::legendDoubleClick(QCPLegend *legend, QCPAbstractLegendItem *ite
   {
     QCPPlottableLegendItem *plItem = qobject_cast<QCPPlottableLegendItem*>(item);
     bool ok;
-    QString newName = QInputDialog::getText(this, "QCustomPlot example", "New graph name:", QLineEdit::Normal, plItem->plottable()->name(), &ok);
+    QString newName = QInputDialog::getText(this, "QCustomPlot example", "Graph name:", QLineEdit::Normal, plItem->plottable()->name(), &ok);
     if (ok)
     {
       plItem->plottable()->setName(newName);
@@ -181,7 +204,7 @@ void MainWindow::addRandomGraph()
   }
 
   ui->customPlot->addGraph();
-  ui->customPlot->graph()->setName(QString("New graph %1").arg(ui->customPlot->graphCount()-1));
+  ui->customPlot->graph()->setName(QString("Graph %1").arg(ui->customPlot->graphCount()-1));
   ui->customPlot->graph()->setData(x, y);
   ui->customPlot->graph()->setLineStyle((QCPGraph::LineStyle)(rand()%5+1));
   if (rand()%100 > 50)
@@ -323,7 +346,7 @@ void MainWindow::setupGammaFunction()
     */
     //--------------------------------
     ui->customPlot->addGraph();
-    ui->customPlot->graph()->setName(QString("New graph %1").arg(ui->customPlot->graphCount()-1));
+    ui->customPlot->graph()->setName(QString("Graph %1").arg(ui->customPlot->graphCount()-1));
     ui->customPlot->graph()->setData(x, y);
 
     QPen graphPen;
@@ -345,7 +368,7 @@ void MainWindow::setupLFunction()
     x[2]=20;
     y[2]=0;
     ui->customPlot->addGraph();
-    ui->customPlot->graph()->setName(QString("New graph %1").arg(ui->customPlot->graphCount()-1));
+    ui->customPlot->graph()->setName(QString("Graph %1").arg(ui->customPlot->graphCount()-1));
     ui->customPlot->graph()->setData(x, y);
     QPen graphPen;
     graphPen.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
@@ -368,7 +391,7 @@ void MainWindow::setupLFunction()
 
     // create graph and assign data to it:
     ui->customPlot->addGraph();
-    ui->customPlot->graph()->setName(QString("New graph %1").arg(ui->customPlot->graphCount()-1));
+    ui->customPlot->graph()->setName(QString("Graph %1").arg(ui->customPlot->graphCount()-1));
     ui->customPlot->graph()->setData(x1, y1);
 
     QPen graphPen1;
@@ -391,7 +414,7 @@ void MainWindow::setupLFunction()
 
     // create graph and assign data to it:
     ui->customPlot->addGraph();
-    ui->customPlot->graph()->setName(QString("New graph %1").arg(ui->customPlot->graphCount()-1));
+    ui->customPlot->graph()->setName(QString("Graph %1").arg(ui->customPlot->graphCount()-1));
     ui->customPlot->graph()->setData(x2, y2);
 
     QPen graphPen2;
@@ -399,55 +422,428 @@ void MainWindow::setupLFunction()
     graphPen2.setWidthF(rand()/(double)RAND_MAX*2+1);
     ui->customPlot->graph()->setPen(graphPen2);
     ui->customPlot->replot();
+    //______________________________________________
+
+    QVector<double> x3(4), y3(4);// initialize with entries 0..100
+    x3[0]=25;
+    y3[0]=0;
+    x3[1]=32.5;
+    y3[1]=1;
+    x3[2]=40;
+    y3[2]=0;
+    x3[3]=50;
+    y3[3]=0;
+
+    // create graph and assign data to it:
+    ui->customPlot->addGraph();
+    ui->customPlot->graph()->setName(QString("Graph %1").arg(ui->customPlot->graphCount()-1));
+    ui->customPlot->graph()->setData(x3, y3);
+
+    QPen graphPen3;
+    graphPen3.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen3.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot->graph()->setPen(graphPen3);
+    ui->customPlot->replot();
+
+
+    /*////////////////////////////////777*/
+    // generate some data:
+    QVector<double> x4(3), y4(3);// initialize with entries 0..100
+    x4[0]=30;
+    y4[0]=0;
+    x4[1]=40;
+    y4[1]=1;
+    x4[2]=50;
+    y4[2]=1;
+
+
+    //--------------------------------
+    ui->customPlot->addGraph();
+    ui->customPlot->graph()->setName(QString("Graph %1").arg(ui->customPlot->graphCount()-1));
+    ui->customPlot->graph()->setData(x4, y4);
+
+    QPen graphPen4;
+    graphPen4.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen4.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot->graph()->setPen(graphPen4);
+    ui->customPlot->replot();
+    /*////////////////////////////////777*/
+    // generate some data:
+    QVector<double> x5(2), y5(2);// initialize with entries 0..100
+    x5[0]=16;
+    y5[0]=0;
+    x5[1]=16;
+    y5[1]=1;
+
+
+    //--------------------------------
+    ui->customPlot->addGraph();
+    ui->customPlot->graph()->setName(QString("Graph %1").arg(ui->customPlot->graphCount()-1));
+    ui->customPlot->graph()->setData(x5, y5);
+
+    QPen graphPen5;
+    graphPen5.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen5.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot->graph()->setPen(graphPen5);
+    ui->customPlot->replot();
+    /*////////////////////////////////777*/
+    // generate some data:
+    QVector<double> x6(2), y6(2);// initialize with entries 0..100
+    x6[0]=0;
+    y6[0]=0.4;
+    x6[1]=50;
+    y6[1]=0.4;
+
+
+    //--------------------------------
+    ui->customPlot->addGraph();
+    ui->customPlot->graph()->setName(QString("Graph %1").arg(ui->customPlot->graphCount()-1));
+    ui->customPlot->graph()->setData(x6, y6);
+
+    QPen graphPen6;
+    graphPen6.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen6.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot->graph()->setPen(graphPen6);
+    ui->customPlot->replot();
+    // generate some data:
+    QVector<double> x7(2), y7(2);// initialize with entries 0..100
+    x7[0]=0;
+    y7[0]=0.8;
+    x7[1]=50;
+    y7[1]=0.8;
+
+
+    //--------------------------------
+    ui->customPlot->addGraph();
+    ui->customPlot->graph()->setName(QString("Graph %1").arg(ui->customPlot->graphCount()-1));
+    ui->customPlot->graph()->setData(x7, y7);
+
+    QPen graphPen7;
+    graphPen7.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen7.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot->graph()->setPen(graphPen7);
+    ui->customPlot->replot();
+
+
 }
 
 void MainWindow::setupLambdaFunction()
 {
 
-    QVector<double> x(4), y(4);// initialize with entries 0..100
-    x[0]=1;
-    y[0]=0;
-    x[1]=2;
-    y[1]=1;
-    x[2]=3;
+    // generate some data:
+    QVector<double> x(3), y(3);// initialize with entries 0..100
+    x[0]=0;
+    y[0]=1;
+    x[1]=160;
+    y[1]=0;
+    x[2]=180;
     y[2]=0;
-    x[3]=4;
-    y[3]=0;
-
-    // create graph and assign data to it:
-    ui->customPlot->addGraph();
-    ui->customPlot->graph()->setName(QString("New graph %1").arg(ui->customPlot->graphCount()-1));
-    ui->customPlot->graph()->setData(x, y);
-
+    ui->customPlot_3->addGraph();
+    ui->customPlot_3->graph()->setName(QString("Graph %1").arg(ui->customPlot_3->graphCount()-1));
+    ui->customPlot_3->graph()->setData(x, y);
     QPen graphPen;
     graphPen.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
     graphPen.setWidthF(rand()/(double)RAND_MAX*2+1);
-    ui->customPlot->graph()->setPen(graphPen);
-    ui->customPlot->replot();
+    ui->customPlot_3->graph()->setPen(graphPen);
+    ui->customPlot_3->replot();
+    ///////////////////////////////////////////////////////////
+
+    QVector<double> x3(4), y3(4);// initialize with entries 0..100
+    x3[0]=160;
+    y3[0]=0;
+    x3[1]=240;
+    y3[1]=1;
+    x3[2]=320;
+    y3[2]=0;
+    x3[3]=321;
+    y3[3]=0;
+
+    // create graph and assign data to it:
+    ui->customPlot_3->addGraph();
+    ui->customPlot_3->graph()->setName(QString("Graph %1").arg(ui->customPlot_3->graphCount()-1));
+    ui->customPlot_3->graph()->setData(x3, y3);
+
+    QPen graphPen3;
+    graphPen3.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen3.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot_3->graph()->setPen(graphPen3);
+    ui->customPlot_3->replot();
+
+    ///////////////////////////////////////////////////////////
+
+    QVector<double> x4(4), y4(4);// initialize with entries 0..100
+    x4[0]=240;
+    y4[0]=0;
+    x4[1]=320;
+    y4[1]=1;
+    x4[2]=400;
+    y4[2]=0;
+    x4[3]=400;
+    y4[3]=0;
+
+    // create graph and assign data to it:
+    ui->customPlot_3->addGraph();
+    ui->customPlot_3->graph()->setName(QString("Graph %1").arg(ui->customPlot_3->graphCount()-1));
+    ui->customPlot_3->graph()->setData(x4, y4);
+
+    QPen graphPen4;
+    graphPen4.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen4.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot_3->graph()->setPen(graphPen4);
+    ui->customPlot_3->replot();
+
+    ///////////////////////////////////////////////////////////
+
+    QVector<double> x5(2), y5(2);// initialize with entries 0..100
+    x5[0]=320;
+    y5[0]=0;
+    x5[1]=400;
+    y5[1]=1;
+
+    // create graph and assign data to it:
+    ui->customPlot_3->addGraph();
+    ui->customPlot_3->graph()->setName(QString("Graph %1").arg(ui->customPlot_3->graphCount()-1));
+    ui->customPlot_3->graph()->setData(x5, y5);
+
+    QPen graphPen5;
+    graphPen5.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen5.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot_3->graph()->setPen(graphPen5);
+    ui->customPlot_3->replot();
+
+
+    /*////////////////////////////////777*/
+    // generate some data:
+    QVector<double> x6(2), y6(2);// initialize with entries 0..100
+    x6[0]=0;
+    y6[0]=0.4;
+    x6[1]=400;
+    y6[1]=0.4;
+
+
+    //--------------------------------
+    ui->customPlot_3->addGraph();
+    ui->customPlot_3->graph()->setName(QString("Graph %1").arg(ui->customPlot_3->graphCount()-1));
+    ui->customPlot_3->graph()->setData(x6, y6);
+
+    QPen graphPen6;
+    graphPen6.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen6.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot_3->graph()->setPen(graphPen6);
+    ui->customPlot_3->replot();
+    // generate some data:
+    QVector<double> x7(2), y7(2);// initialize with entries 0..100
+    x7[0]=0;
+    y7[0]=0.8;
+    x7[1]=400;
+    y7[1]=0.8;
+
+
+    //--------------------------------
+    ui->customPlot_3->addGraph();
+    ui->customPlot_3->graph()->setName(QString("Graph %1").arg(ui->customPlot_3->graphCount()-1));
+    ui->customPlot_3->graph()->setData(x7, y7);
+
+    QPen graphPen7;
+    graphPen7.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen7.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot_3->graph()->setPen(graphPen7);
+    ui->customPlot_3->replot();
+
+
 }
 
 void MainWindow::setupPIFunction()
 {
-    QVector<double> x(4), y(4);// initialize with entries 0..100
-    x[0]=0.5;
-    y[0]=0;
-    x[1]=1;
-    y[1]=1;
-    x[2]=1.5;
-    y[2]=1;
-    x[3]=2;
-    y[3]=0;
-
-    // create graph and assign data to it:
-    ui->customPlot->addGraph();
-    ui->customPlot->graph()->setName(QString("New graph %1").arg(ui->customPlot->graphCount()-1));
-    ui->customPlot->graph()->setData(x, y);
-
+    // generate some data:
+    QVector<double> x(3), y(3);// initialize with entries 0..100
+    x[0]=0;
+    y[0]=1;
+    x[1]=160;
+    y[1]=0;
+    x[2]=180;
+    y[2]=0;
+    ui->customPlot_2->addGraph();
+    ui->customPlot_2->graph()->setName(QString("Graph %1").arg(ui->customPlot_2->graphCount()-1));
+    ui->customPlot_2->graph()->setData(x, y);
     QPen graphPen;
     graphPen.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
     graphPen.setWidthF(rand()/(double)RAND_MAX*2+1);
-    ui->customPlot->graph()->setPen(graphPen);
-    ui->customPlot->replot();
+    ui->customPlot_2->graph()->setPen(graphPen);
+    ui->customPlot_2->replot();
+    ///////////////////////////////////////////////////////////
+
+    QVector<double> x3(4), y3(4);// initialize with entries 0..100
+    x3[0]=160;
+    y3[0]=0;
+    x3[1]=240;
+    y3[1]=1;
+    x3[2]=320;
+    y3[2]=0;
+    x3[3]=321;
+    y3[3]=0;
+
+    // create graph and assign data to it:
+    ui->customPlot_2->addGraph();
+    ui->customPlot_2->graph()->setName(QString("Graph %1").arg(ui->customPlot_2->graphCount()-1));
+    ui->customPlot_2->graph()->setData(x3, y3);
+
+    QPen graphPen3;
+    graphPen3.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen3.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot_2->graph()->setPen(graphPen3);
+    ui->customPlot_2->replot();
+
+    ///////////////////////////////////////////////////////////
+
+    QVector<double> x4(4), y4(4);// initialize with entries 0..100
+    x4[0]=240;
+    y4[0]=0;
+    x4[1]=320;
+    y4[1]=1;
+    x4[2]=400;
+    y4[2]=0;
+    x4[3]=400;
+    y4[3]=0;
+
+    // create graph and assign data to it:
+    ui->customPlot_2->addGraph();
+    ui->customPlot_2->graph()->setName(QString("Graph %1").arg(ui->customPlot_2->graphCount()-1));
+    ui->customPlot_2->graph()->setData(x4, y4);
+
+    QPen graphPen4;
+    graphPen4.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen4.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot_2->graph()->setPen(graphPen4);
+    ui->customPlot_2->replot();
+
+    ///////////////////////////////////////////////////////////
+
+    QVector<double> x5(2), y5(2);// initialize with entries 0..100
+    x5[0]=320;
+    y5[0]=0;
+    x5[1]=400;
+    y5[1]=1;
+
+    // create graph and assign data to it:
+    ui->customPlot_2->addGraph();
+    ui->customPlot_2->graph()->setName(QString("Graph %1").arg(ui->customPlot_2->graphCount()-1));
+    ui->customPlot_2->graph()->setData(x5, y5);
+
+    QPen graphPen5;
+    graphPen5.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen5.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot_2->graph()->setPen(graphPen5);
+    ui->customPlot_2->replot();
+
+
+    /*////////////////////////////////777*/
+    // generate some data:
+    QVector<double> x6(2), y6(2);// initialize with entries 0..100
+    x6[0]=0;
+    y6[0]=0.4;
+    x6[1]=400;
+    y6[1]=0.4;
+
+
+    //--------------------------------
+    ui->customPlot_2->addGraph();
+    ui->customPlot_2->graph()->setName(QString("Graph %1").arg(ui->customPlot_2->graphCount()-1));
+    ui->customPlot_2->graph()->setData(x6, y6);
+
+    QPen graphPen6;
+    graphPen6.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen6.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot_2->graph()->setPen(graphPen6);
+    ui->customPlot_2->replot();
+    // generate some data:
+    QVector<double> x7(2), y7(2);// initialize with entries 0..100
+    x7[0]=0;
+    y7[0]=0.8;
+    x7[1]=400;
+    y7[1]=0.8;
+
+
+    //--------------------------------
+    ui->customPlot_2->addGraph();
+    ui->customPlot_2->graph()->setName(QString("Graph %1").arg(ui->customPlot_2->graphCount()-1));
+    ui->customPlot_2->graph()->setData(x7, y7);
+
+    QPen graphPen7;
+    graphPen7.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen7.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot_2->graph()->setPen(graphPen7);
+    ui->customPlot_2->replot();
+    // generate some data:
+    QVector<double> x8(24), y8(24);// initialize with entries 0..100
+
+
+    x8[0]=250;
+    y8[0]=0;
+    x8[1]=250;
+    y8[1]=0.1;
+    x8[2]=250;
+    y8[2]=0;
+    x8[3]=270;
+    y8[3]=0;
+    x8[4]=270;
+    y8[4]=0.4;
+    x8[5]=270;
+    y8[5]=0;
+    x8[6]=290;
+    y8[6]=0;
+    x8[7]=290;
+    y8[7]=0.6;
+    x8[8]=290;
+    y8[8]=0;
+
+    x8[9]=310;
+    y8[9]=0;
+    x8[10]=310;
+    y8[10]=0.8;
+    x8[11]=310;
+    y8[11]=0;
+
+    x8[12]=330;
+    y8[12]=0;
+    x8[13]=330;
+    y8[13]=0.8;
+    x8[14]=330;
+    y8[14]=0;
+
+    x8[15]=350;
+    y8[15]=0;
+    x8[16]=350;
+    y8[16]=0.6;
+    x8[17]=350;
+    y8[17]=0;
+
+    x8[18]=370;
+    y8[18]=0;
+    x8[19]=370;
+    y8[19]=0.4;
+    x8[20]=370;
+    y8[20]=0;
+
+    x8[21]=390;
+    y8[21]=0;
+    x8[22]=390;
+    y8[22]=0.4;
+    x8[23]=390;
+    y8[23]=0;
+
+
+    //--------------------------------
+    ui->customPlot_2->addGraph();
+    ui->customPlot_2->graph()->setName(QString("Graph %1").arg(ui->customPlot_2->graphCount()-1));
+    ui->customPlot_2->graph()->setData(x8, y8);
+
+    QPen graphPen8;
+    graphPen8.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
+    graphPen8.setWidthF(rand()/(double)RAND_MAX*2+1);
+    ui->customPlot_2->graph()->setPen(graphPen8);
+    ui->customPlot_2->replot();
+
 
 }
 void MainWindow::on_pushButton_clicked()

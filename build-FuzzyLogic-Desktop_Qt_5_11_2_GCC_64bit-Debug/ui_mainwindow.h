@@ -54,7 +54,6 @@ public:
     QGridLayout *gridLayout_16;
     QLabel *label_16;
     QLineEdit *lineEdit;
-    QLineEdit *lineEdit_8;
     QCustomPlot *customPlot_2;
     QTabWidget *tabWidget_2;
     QWidget *tab_6;
@@ -108,10 +107,94 @@ public:
     QLineEdit *cProgressBar;
     QLineEdit *dProgressBar;
     QWidget *tab_2;
+    QWidget *layoutWidget_2;
+    QGridLayout *gridLayout_7;
+    QLabel *label_27;
+    QSlider *horizontalSlider_4;
+    QLabel *label_28;
+    QSlider *horizontalSlider_6;
+    QLabel *label_29;
+    QSlider *horizontalSlider_7;
+    QLabel *label_30;
+    QSlider *horizontalSlider_8;
     QWidget *tab_3;
     QLabel *label_6;
+    QWidget *layoutWidget_3;
+    QGridLayout *gridLayout_8;
+    QLabel *label_31;
+    QSlider *horizontalSlider_9;
+    QLabel *label_32;
+    QSlider *horizontalSlider_10;
+    QLabel *label_33;
+    QSlider *horizontalSlider_11;
+    QLabel *label_34;
+    QSlider *horizontalSlider_12;
+    QWidget *widget1;
+    QWidget *layoutWidget_4;
+    QGridLayout *gridLayout_9;
+    QLabel *label_35;
+    QSlider *horizontalSlider_13;
+    QLabel *label_36;
+    QSlider *horizontalSlider_14;
+    QLabel *label_37;
+    QSlider *horizontalSlider_15;
+    QLabel *label_38;
+    QSlider *horizontalSlider_16;
     QWidget *tab_11;
     QCustomPlot *customPlot_3;
+    QTabWidget *tabWidget_4;
+    QWidget *tab_4;
+    QWidget *layoutWidget_5;
+    QGridLayout *gridLayout_10;
+    QLabel *label_39;
+    QSlider *horizontalSlider_17;
+    QLabel *label_40;
+    QSlider *horizontalSlider_18;
+    QLabel *label_41;
+    QSlider *horizontalSlider_19;
+    QLabel *label_42;
+    QSlider *horizontalSlider_20;
+    QWidget *layoutWidget_6;
+    QGridLayout *gridLayout_5;
+    QLineEdit *aProgressBar_2;
+    QLineEdit *bProgreesBar_2;
+    QLineEdit *cProgressBar_2;
+    QLineEdit *dProgressBar_2;
+    QWidget *tab_5;
+    QWidget *layoutWidget_7;
+    QGridLayout *gridLayout_11;
+    QLabel *label_43;
+    QSlider *horizontalSlider_21;
+    QLabel *label_44;
+    QSlider *horizontalSlider_22;
+    QLabel *label_45;
+    QSlider *horizontalSlider_23;
+    QLabel *label_46;
+    QSlider *horizontalSlider_24;
+    QWidget *tab_8;
+    QLabel *label_47;
+    QWidget *layoutWidget_8;
+    QGridLayout *gridLayout_17;
+    QLabel *label_48;
+    QSlider *horizontalSlider_25;
+    QLabel *label_49;
+    QSlider *horizontalSlider_26;
+    QLabel *label_50;
+    QSlider *horizontalSlider_27;
+    QLabel *label_51;
+    QSlider *horizontalSlider_28;
+    QWidget *widget2;
+    QWidget *layoutWidget_9;
+    QGridLayout *gridLayout_18;
+    QLabel *label_52;
+    QSlider *horizontalSlider_29;
+    QLabel *label_53;
+    QSlider *horizontalSlider_30;
+    QLabel *label_54;
+    QSlider *horizontalSlider_31;
+    QLabel *label_55;
+    QSlider *horizontalSlider_32;
+    QPushButton *pushButton_2;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -234,11 +317,6 @@ public:
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
 
         gridLayout_16->addWidget(lineEdit, 0, 1, 1, 1);
-
-        lineEdit_8 = new QLineEdit(layoutWidget1);
-        lineEdit_8->setObjectName(QStringLiteral("lineEdit_8"));
-
-        gridLayout_16->addWidget(lineEdit_8, 0, 2, 1, 1);
 
         customPlot_2 = new QCustomPlot(centralWidget);
         customPlot_2->setObjectName(QStringLiteral("customPlot_2"));
@@ -481,20 +559,436 @@ public:
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
+        layoutWidget_2 = new QWidget(tab_2);
+        layoutWidget_2->setObjectName(QStringLiteral("layoutWidget_2"));
+        layoutWidget_2->setGeometry(QRect(10, 10, 751, 91));
+        gridLayout_7 = new QGridLayout(layoutWidget_2);
+        gridLayout_7->setSpacing(6);
+        gridLayout_7->setContentsMargins(11, 11, 11, 11);
+        gridLayout_7->setObjectName(QStringLiteral("gridLayout_7"));
+        gridLayout_7->setContentsMargins(0, 0, 0, 0);
+        label_27 = new QLabel(layoutWidget_2);
+        label_27->setObjectName(QStringLiteral("label_27"));
+
+        gridLayout_7->addWidget(label_27, 0, 0, 2, 2);
+
+        horizontalSlider_4 = new QSlider(layoutWidget_2);
+        horizontalSlider_4->setObjectName(QStringLiteral("horizontalSlider_4"));
+        horizontalSlider_4->setOrientation(Qt::Horizontal);
+
+        gridLayout_7->addWidget(horizontalSlider_4, 1, 1, 1, 1);
+
+        label_28 = new QLabel(layoutWidget_2);
+        label_28->setObjectName(QStringLiteral("label_28"));
+
+        gridLayout_7->addWidget(label_28, 2, 0, 2, 2);
+
+        horizontalSlider_6 = new QSlider(layoutWidget_2);
+        horizontalSlider_6->setObjectName(QStringLiteral("horizontalSlider_6"));
+        horizontalSlider_6->setOrientation(Qt::Horizontal);
+
+        gridLayout_7->addWidget(horizontalSlider_6, 3, 1, 1, 1);
+
+        label_29 = new QLabel(layoutWidget_2);
+        label_29->setObjectName(QStringLiteral("label_29"));
+
+        gridLayout_7->addWidget(label_29, 4, 0, 1, 1);
+
+        horizontalSlider_7 = new QSlider(layoutWidget_2);
+        horizontalSlider_7->setObjectName(QStringLiteral("horizontalSlider_7"));
+        horizontalSlider_7->setOrientation(Qt::Horizontal);
+
+        gridLayout_7->addWidget(horizontalSlider_7, 4, 1, 1, 1);
+
+        label_30 = new QLabel(layoutWidget_2);
+        label_30->setObjectName(QStringLiteral("label_30"));
+
+        gridLayout_7->addWidget(label_30, 5, 0, 2, 2);
+
+        horizontalSlider_8 = new QSlider(layoutWidget_2);
+        horizontalSlider_8->setObjectName(QStringLiteral("horizontalSlider_8"));
+        horizontalSlider_8->setOrientation(Qt::Horizontal);
+
+        gridLayout_7->addWidget(horizontalSlider_8, 6, 1, 1, 1);
+
         tabWidget->addTab(tab_2, QString());
         tab_3 = new QWidget();
         tab_3->setObjectName(QStringLiteral("tab_3"));
         label_6 = new QLabel(tab_3);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setGeometry(QRect(170, 20, 131, 16));
+        layoutWidget_3 = new QWidget(tab_3);
+        layoutWidget_3->setObjectName(QStringLiteral("layoutWidget_3"));
+        layoutWidget_3->setGeometry(QRect(10, 10, 751, 91));
+        gridLayout_8 = new QGridLayout(layoutWidget_3);
+        gridLayout_8->setSpacing(6);
+        gridLayout_8->setContentsMargins(11, 11, 11, 11);
+        gridLayout_8->setObjectName(QStringLiteral("gridLayout_8"));
+        gridLayout_8->setContentsMargins(0, 0, 0, 0);
+        label_31 = new QLabel(layoutWidget_3);
+        label_31->setObjectName(QStringLiteral("label_31"));
+
+        gridLayout_8->addWidget(label_31, 0, 0, 2, 2);
+
+        horizontalSlider_9 = new QSlider(layoutWidget_3);
+        horizontalSlider_9->setObjectName(QStringLiteral("horizontalSlider_9"));
+        horizontalSlider_9->setOrientation(Qt::Horizontal);
+
+        gridLayout_8->addWidget(horizontalSlider_9, 1, 1, 1, 1);
+
+        label_32 = new QLabel(layoutWidget_3);
+        label_32->setObjectName(QStringLiteral("label_32"));
+
+        gridLayout_8->addWidget(label_32, 2, 0, 2, 2);
+
+        horizontalSlider_10 = new QSlider(layoutWidget_3);
+        horizontalSlider_10->setObjectName(QStringLiteral("horizontalSlider_10"));
+        horizontalSlider_10->setOrientation(Qt::Horizontal);
+
+        gridLayout_8->addWidget(horizontalSlider_10, 3, 1, 1, 1);
+
+        label_33 = new QLabel(layoutWidget_3);
+        label_33->setObjectName(QStringLiteral("label_33"));
+
+        gridLayout_8->addWidget(label_33, 4, 0, 1, 1);
+
+        horizontalSlider_11 = new QSlider(layoutWidget_3);
+        horizontalSlider_11->setObjectName(QStringLiteral("horizontalSlider_11"));
+        horizontalSlider_11->setOrientation(Qt::Horizontal);
+
+        gridLayout_8->addWidget(horizontalSlider_11, 4, 1, 1, 1);
+
+        label_34 = new QLabel(layoutWidget_3);
+        label_34->setObjectName(QStringLiteral("label_34"));
+
+        gridLayout_8->addWidget(label_34, 5, 0, 2, 2);
+
+        horizontalSlider_12 = new QSlider(layoutWidget_3);
+        horizontalSlider_12->setObjectName(QStringLiteral("horizontalSlider_12"));
+        horizontalSlider_12->setOrientation(Qt::Horizontal);
+
+        gridLayout_8->addWidget(horizontalSlider_12, 6, 1, 1, 1);
+
         tabWidget->addTab(tab_3, QString());
+        widget1 = new QWidget();
+        widget1->setObjectName(QStringLiteral("widget1"));
+        layoutWidget_4 = new QWidget(widget1);
+        layoutWidget_4->setObjectName(QStringLiteral("layoutWidget_4"));
+        layoutWidget_4->setGeometry(QRect(0, 10, 751, 91));
+        gridLayout_9 = new QGridLayout(layoutWidget_4);
+        gridLayout_9->setSpacing(6);
+        gridLayout_9->setContentsMargins(11, 11, 11, 11);
+        gridLayout_9->setObjectName(QStringLiteral("gridLayout_9"));
+        gridLayout_9->setContentsMargins(0, 0, 0, 0);
+        label_35 = new QLabel(layoutWidget_4);
+        label_35->setObjectName(QStringLiteral("label_35"));
+
+        gridLayout_9->addWidget(label_35, 0, 0, 2, 2);
+
+        horizontalSlider_13 = new QSlider(layoutWidget_4);
+        horizontalSlider_13->setObjectName(QStringLiteral("horizontalSlider_13"));
+        horizontalSlider_13->setOrientation(Qt::Horizontal);
+
+        gridLayout_9->addWidget(horizontalSlider_13, 1, 1, 1, 1);
+
+        label_36 = new QLabel(layoutWidget_4);
+        label_36->setObjectName(QStringLiteral("label_36"));
+
+        gridLayout_9->addWidget(label_36, 2, 0, 2, 2);
+
+        horizontalSlider_14 = new QSlider(layoutWidget_4);
+        horizontalSlider_14->setObjectName(QStringLiteral("horizontalSlider_14"));
+        horizontalSlider_14->setOrientation(Qt::Horizontal);
+
+        gridLayout_9->addWidget(horizontalSlider_14, 3, 1, 1, 1);
+
+        label_37 = new QLabel(layoutWidget_4);
+        label_37->setObjectName(QStringLiteral("label_37"));
+
+        gridLayout_9->addWidget(label_37, 4, 0, 1, 1);
+
+        horizontalSlider_15 = new QSlider(layoutWidget_4);
+        horizontalSlider_15->setObjectName(QStringLiteral("horizontalSlider_15"));
+        horizontalSlider_15->setOrientation(Qt::Horizontal);
+
+        gridLayout_9->addWidget(horizontalSlider_15, 4, 1, 1, 1);
+
+        label_38 = new QLabel(layoutWidget_4);
+        label_38->setObjectName(QStringLiteral("label_38"));
+
+        gridLayout_9->addWidget(label_38, 5, 0, 2, 2);
+
+        horizontalSlider_16 = new QSlider(layoutWidget_4);
+        horizontalSlider_16->setObjectName(QStringLiteral("horizontalSlider_16"));
+        horizontalSlider_16->setOrientation(Qt::Horizontal);
+
+        gridLayout_9->addWidget(horizontalSlider_16, 6, 1, 1, 1);
+
+        tabWidget->addTab(widget1, QString());
         tabWidget_3->addTab(tab_10, QString());
         tab_11 = new QWidget();
         tab_11->setObjectName(QStringLiteral("tab_11"));
         customPlot_3 = new QCustomPlot(tab_11);
         customPlot_3->setObjectName(QStringLiteral("customPlot_3"));
         customPlot_3->setGeometry(QRect(0, 0, 801, 211));
+        tabWidget_4 = new QTabWidget(tab_11);
+        tabWidget_4->setObjectName(QStringLiteral("tabWidget_4"));
+        tabWidget_4->setGeometry(QRect(0, 220, 811, 151));
+        tab_4 = new QWidget();
+        tab_4->setObjectName(QStringLiteral("tab_4"));
+        layoutWidget_5 = new QWidget(tab_4);
+        layoutWidget_5->setObjectName(QStringLiteral("layoutWidget_5"));
+        layoutWidget_5->setGeometry(QRect(0, 10, 751, 91));
+        gridLayout_10 = new QGridLayout(layoutWidget_5);
+        gridLayout_10->setSpacing(6);
+        gridLayout_10->setContentsMargins(11, 11, 11, 11);
+        gridLayout_10->setObjectName(QStringLiteral("gridLayout_10"));
+        gridLayout_10->setContentsMargins(0, 0, 0, 0);
+        label_39 = new QLabel(layoutWidget_5);
+        label_39->setObjectName(QStringLiteral("label_39"));
+
+        gridLayout_10->addWidget(label_39, 0, 0, 2, 2);
+
+        horizontalSlider_17 = new QSlider(layoutWidget_5);
+        horizontalSlider_17->setObjectName(QStringLiteral("horizontalSlider_17"));
+        horizontalSlider_17->setOrientation(Qt::Horizontal);
+
+        gridLayout_10->addWidget(horizontalSlider_17, 1, 1, 1, 1);
+
+        label_40 = new QLabel(layoutWidget_5);
+        label_40->setObjectName(QStringLiteral("label_40"));
+
+        gridLayout_10->addWidget(label_40, 2, 0, 2, 2);
+
+        horizontalSlider_18 = new QSlider(layoutWidget_5);
+        horizontalSlider_18->setObjectName(QStringLiteral("horizontalSlider_18"));
+        horizontalSlider_18->setOrientation(Qt::Horizontal);
+
+        gridLayout_10->addWidget(horizontalSlider_18, 3, 1, 1, 1);
+
+        label_41 = new QLabel(layoutWidget_5);
+        label_41->setObjectName(QStringLiteral("label_41"));
+
+        gridLayout_10->addWidget(label_41, 4, 0, 1, 1);
+
+        horizontalSlider_19 = new QSlider(layoutWidget_5);
+        horizontalSlider_19->setObjectName(QStringLiteral("horizontalSlider_19"));
+        horizontalSlider_19->setOrientation(Qt::Horizontal);
+
+        gridLayout_10->addWidget(horizontalSlider_19, 4, 1, 1, 1);
+
+        label_42 = new QLabel(layoutWidget_5);
+        label_42->setObjectName(QStringLiteral("label_42"));
+
+        gridLayout_10->addWidget(label_42, 5, 0, 2, 2);
+
+        horizontalSlider_20 = new QSlider(layoutWidget_5);
+        horizontalSlider_20->setObjectName(QStringLiteral("horizontalSlider_20"));
+        horizontalSlider_20->setOrientation(Qt::Horizontal);
+
+        gridLayout_10->addWidget(horizontalSlider_20, 6, 1, 1, 1);
+
+        layoutWidget_6 = new QWidget(tab_4);
+        layoutWidget_6->setObjectName(QStringLiteral("layoutWidget_6"));
+        layoutWidget_6->setGeometry(QRect(751, 11, 43, 102));
+        gridLayout_5 = new QGridLayout(layoutWidget_6);
+        gridLayout_5->setSpacing(6);
+        gridLayout_5->setContentsMargins(11, 11, 11, 11);
+        gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
+        gridLayout_5->setContentsMargins(0, 0, 0, 0);
+        aProgressBar_2 = new QLineEdit(layoutWidget_6);
+        aProgressBar_2->setObjectName(QStringLiteral("aProgressBar_2"));
+
+        gridLayout_5->addWidget(aProgressBar_2, 0, 0, 1, 1);
+
+        bProgreesBar_2 = new QLineEdit(layoutWidget_6);
+        bProgreesBar_2->setObjectName(QStringLiteral("bProgreesBar_2"));
+
+        gridLayout_5->addWidget(bProgreesBar_2, 1, 0, 1, 1);
+
+        cProgressBar_2 = new QLineEdit(layoutWidget_6);
+        cProgressBar_2->setObjectName(QStringLiteral("cProgressBar_2"));
+
+        gridLayout_5->addWidget(cProgressBar_2, 2, 0, 1, 1);
+
+        dProgressBar_2 = new QLineEdit(layoutWidget_6);
+        dProgressBar_2->setObjectName(QStringLiteral("dProgressBar_2"));
+
+        gridLayout_5->addWidget(dProgressBar_2, 3, 0, 1, 1);
+
+        tabWidget_4->addTab(tab_4, QString());
+        tab_5 = new QWidget();
+        tab_5->setObjectName(QStringLiteral("tab_5"));
+        layoutWidget_7 = new QWidget(tab_5);
+        layoutWidget_7->setObjectName(QStringLiteral("layoutWidget_7"));
+        layoutWidget_7->setGeometry(QRect(10, 10, 751, 91));
+        gridLayout_11 = new QGridLayout(layoutWidget_7);
+        gridLayout_11->setSpacing(6);
+        gridLayout_11->setContentsMargins(11, 11, 11, 11);
+        gridLayout_11->setObjectName(QStringLiteral("gridLayout_11"));
+        gridLayout_11->setContentsMargins(0, 0, 0, 0);
+        label_43 = new QLabel(layoutWidget_7);
+        label_43->setObjectName(QStringLiteral("label_43"));
+
+        gridLayout_11->addWidget(label_43, 0, 0, 2, 2);
+
+        horizontalSlider_21 = new QSlider(layoutWidget_7);
+        horizontalSlider_21->setObjectName(QStringLiteral("horizontalSlider_21"));
+        horizontalSlider_21->setOrientation(Qt::Horizontal);
+
+        gridLayout_11->addWidget(horizontalSlider_21, 1, 1, 1, 1);
+
+        label_44 = new QLabel(layoutWidget_7);
+        label_44->setObjectName(QStringLiteral("label_44"));
+
+        gridLayout_11->addWidget(label_44, 2, 0, 2, 2);
+
+        horizontalSlider_22 = new QSlider(layoutWidget_7);
+        horizontalSlider_22->setObjectName(QStringLiteral("horizontalSlider_22"));
+        horizontalSlider_22->setOrientation(Qt::Horizontal);
+
+        gridLayout_11->addWidget(horizontalSlider_22, 3, 1, 1, 1);
+
+        label_45 = new QLabel(layoutWidget_7);
+        label_45->setObjectName(QStringLiteral("label_45"));
+
+        gridLayout_11->addWidget(label_45, 4, 0, 1, 1);
+
+        horizontalSlider_23 = new QSlider(layoutWidget_7);
+        horizontalSlider_23->setObjectName(QStringLiteral("horizontalSlider_23"));
+        horizontalSlider_23->setOrientation(Qt::Horizontal);
+
+        gridLayout_11->addWidget(horizontalSlider_23, 4, 1, 1, 1);
+
+        label_46 = new QLabel(layoutWidget_7);
+        label_46->setObjectName(QStringLiteral("label_46"));
+
+        gridLayout_11->addWidget(label_46, 5, 0, 2, 2);
+
+        horizontalSlider_24 = new QSlider(layoutWidget_7);
+        horizontalSlider_24->setObjectName(QStringLiteral("horizontalSlider_24"));
+        horizontalSlider_24->setOrientation(Qt::Horizontal);
+
+        gridLayout_11->addWidget(horizontalSlider_24, 6, 1, 1, 1);
+
+        tabWidget_4->addTab(tab_5, QString());
+        tab_8 = new QWidget();
+        tab_8->setObjectName(QStringLiteral("tab_8"));
+        label_47 = new QLabel(tab_8);
+        label_47->setObjectName(QStringLiteral("label_47"));
+        label_47->setGeometry(QRect(170, 20, 131, 16));
+        layoutWidget_8 = new QWidget(tab_8);
+        layoutWidget_8->setObjectName(QStringLiteral("layoutWidget_8"));
+        layoutWidget_8->setGeometry(QRect(10, 10, 751, 91));
+        gridLayout_17 = new QGridLayout(layoutWidget_8);
+        gridLayout_17->setSpacing(6);
+        gridLayout_17->setContentsMargins(11, 11, 11, 11);
+        gridLayout_17->setObjectName(QStringLiteral("gridLayout_17"));
+        gridLayout_17->setContentsMargins(0, 0, 0, 0);
+        label_48 = new QLabel(layoutWidget_8);
+        label_48->setObjectName(QStringLiteral("label_48"));
+
+        gridLayout_17->addWidget(label_48, 0, 0, 2, 2);
+
+        horizontalSlider_25 = new QSlider(layoutWidget_8);
+        horizontalSlider_25->setObjectName(QStringLiteral("horizontalSlider_25"));
+        horizontalSlider_25->setOrientation(Qt::Horizontal);
+
+        gridLayout_17->addWidget(horizontalSlider_25, 1, 1, 1, 1);
+
+        label_49 = new QLabel(layoutWidget_8);
+        label_49->setObjectName(QStringLiteral("label_49"));
+
+        gridLayout_17->addWidget(label_49, 2, 0, 2, 2);
+
+        horizontalSlider_26 = new QSlider(layoutWidget_8);
+        horizontalSlider_26->setObjectName(QStringLiteral("horizontalSlider_26"));
+        horizontalSlider_26->setOrientation(Qt::Horizontal);
+
+        gridLayout_17->addWidget(horizontalSlider_26, 3, 1, 1, 1);
+
+        label_50 = new QLabel(layoutWidget_8);
+        label_50->setObjectName(QStringLiteral("label_50"));
+
+        gridLayout_17->addWidget(label_50, 4, 0, 1, 1);
+
+        horizontalSlider_27 = new QSlider(layoutWidget_8);
+        horizontalSlider_27->setObjectName(QStringLiteral("horizontalSlider_27"));
+        horizontalSlider_27->setOrientation(Qt::Horizontal);
+
+        gridLayout_17->addWidget(horizontalSlider_27, 4, 1, 1, 1);
+
+        label_51 = new QLabel(layoutWidget_8);
+        label_51->setObjectName(QStringLiteral("label_51"));
+
+        gridLayout_17->addWidget(label_51, 5, 0, 2, 2);
+
+        horizontalSlider_28 = new QSlider(layoutWidget_8);
+        horizontalSlider_28->setObjectName(QStringLiteral("horizontalSlider_28"));
+        horizontalSlider_28->setOrientation(Qt::Horizontal);
+
+        gridLayout_17->addWidget(horizontalSlider_28, 6, 1, 1, 1);
+
+        tabWidget_4->addTab(tab_8, QString());
+        widget2 = new QWidget();
+        widget2->setObjectName(QStringLiteral("widget2"));
+        layoutWidget_9 = new QWidget(widget2);
+        layoutWidget_9->setObjectName(QStringLiteral("layoutWidget_9"));
+        layoutWidget_9->setGeometry(QRect(0, 10, 751, 91));
+        gridLayout_18 = new QGridLayout(layoutWidget_9);
+        gridLayout_18->setSpacing(6);
+        gridLayout_18->setContentsMargins(11, 11, 11, 11);
+        gridLayout_18->setObjectName(QStringLiteral("gridLayout_18"));
+        gridLayout_18->setContentsMargins(0, 0, 0, 0);
+        label_52 = new QLabel(layoutWidget_9);
+        label_52->setObjectName(QStringLiteral("label_52"));
+
+        gridLayout_18->addWidget(label_52, 0, 0, 2, 2);
+
+        horizontalSlider_29 = new QSlider(layoutWidget_9);
+        horizontalSlider_29->setObjectName(QStringLiteral("horizontalSlider_29"));
+        horizontalSlider_29->setOrientation(Qt::Horizontal);
+
+        gridLayout_18->addWidget(horizontalSlider_29, 1, 1, 1, 1);
+
+        label_53 = new QLabel(layoutWidget_9);
+        label_53->setObjectName(QStringLiteral("label_53"));
+
+        gridLayout_18->addWidget(label_53, 2, 0, 2, 2);
+
+        horizontalSlider_30 = new QSlider(layoutWidget_9);
+        horizontalSlider_30->setObjectName(QStringLiteral("horizontalSlider_30"));
+        horizontalSlider_30->setOrientation(Qt::Horizontal);
+
+        gridLayout_18->addWidget(horizontalSlider_30, 3, 1, 1, 1);
+
+        label_54 = new QLabel(layoutWidget_9);
+        label_54->setObjectName(QStringLiteral("label_54"));
+
+        gridLayout_18->addWidget(label_54, 4, 0, 1, 1);
+
+        horizontalSlider_31 = new QSlider(layoutWidget_9);
+        horizontalSlider_31->setObjectName(QStringLiteral("horizontalSlider_31"));
+        horizontalSlider_31->setOrientation(Qt::Horizontal);
+
+        gridLayout_18->addWidget(horizontalSlider_31, 4, 1, 1, 1);
+
+        label_55 = new QLabel(layoutWidget_9);
+        label_55->setObjectName(QStringLiteral("label_55"));
+
+        gridLayout_18->addWidget(label_55, 5, 0, 2, 2);
+
+        horizontalSlider_32 = new QSlider(layoutWidget_9);
+        horizontalSlider_32->setObjectName(QStringLiteral("horizontalSlider_32"));
+        horizontalSlider_32->setOrientation(Qt::Horizontal);
+
+        gridLayout_18->addWidget(horizontalSlider_32, 6, 1, 1, 1);
+
+        tabWidget_4->addTab(widget2, QString());
         tabWidget_3->addTab(tab_11, QString());
+        pushButton_2 = new QPushButton(centralWidget);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setGeometry(QRect(1040, 560, 80, 20));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -509,9 +1003,10 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget_2->setCurrentIndex(1);
-        tabWidget_3->setCurrentIndex(0);
-        tabWidget->setCurrentIndex(2);
+        tabWidget_2->setCurrentIndex(0);
+        tabWidget_3->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
+        tabWidget_4->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -549,11 +1044,46 @@ public:
         label_10->setText(QApplication::translate("MainWindow", "c", nullptr));
         label_12->setText(QApplication::translate("MainWindow", "d", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Graph1", nullptr));
+        label_27->setText(QApplication::translate("MainWindow", "a", nullptr));
+        label_28->setText(QApplication::translate("MainWindow", "b", nullptr));
+        label_29->setText(QApplication::translate("MainWindow", "c", nullptr));
+        label_30->setText(QApplication::translate("MainWindow", "d", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Graph2", nullptr));
         label_6->setText(QApplication::translate("MainWindow", "Edit Parameters", nullptr));
+        label_31->setText(QApplication::translate("MainWindow", "a", nullptr));
+        label_32->setText(QApplication::translate("MainWindow", "b", nullptr));
+        label_33->setText(QApplication::translate("MainWindow", "c", nullptr));
+        label_34->setText(QApplication::translate("MainWindow", "d", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Graph3", nullptr));
+        label_35->setText(QApplication::translate("MainWindow", "a", nullptr));
+        label_36->setText(QApplication::translate("MainWindow", "b", nullptr));
+        label_37->setText(QApplication::translate("MainWindow", "c", nullptr));
+        label_38->setText(QApplication::translate("MainWindow", "d", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(widget1), QApplication::translate("MainWindow", "Graph4", nullptr));
         tabWidget_3->setTabText(tabWidget_3->indexOf(tab_10), QApplication::translate("MainWindow", "VarLinguistica1", nullptr));
+        label_39->setText(QApplication::translate("MainWindow", "a", nullptr));
+        label_40->setText(QApplication::translate("MainWindow", "b", nullptr));
+        label_41->setText(QApplication::translate("MainWindow", "c", nullptr));
+        label_42->setText(QApplication::translate("MainWindow", "d", nullptr));
+        tabWidget_4->setTabText(tabWidget_4->indexOf(tab_4), QApplication::translate("MainWindow", "Graph1", nullptr));
+        label_43->setText(QApplication::translate("MainWindow", "a", nullptr));
+        label_44->setText(QApplication::translate("MainWindow", "b", nullptr));
+        label_45->setText(QApplication::translate("MainWindow", "c", nullptr));
+        label_46->setText(QApplication::translate("MainWindow", "d", nullptr));
+        tabWidget_4->setTabText(tabWidget_4->indexOf(tab_5), QApplication::translate("MainWindow", "Graph2", nullptr));
+        label_47->setText(QApplication::translate("MainWindow", "Edit Parameters", nullptr));
+        label_48->setText(QApplication::translate("MainWindow", "a", nullptr));
+        label_49->setText(QApplication::translate("MainWindow", "b", nullptr));
+        label_50->setText(QApplication::translate("MainWindow", "c", nullptr));
+        label_51->setText(QApplication::translate("MainWindow", "d", nullptr));
+        tabWidget_4->setTabText(tabWidget_4->indexOf(tab_8), QApplication::translate("MainWindow", "Graph3", nullptr));
+        label_52->setText(QApplication::translate("MainWindow", "a", nullptr));
+        label_53->setText(QApplication::translate("MainWindow", "b", nullptr));
+        label_54->setText(QApplication::translate("MainWindow", "c", nullptr));
+        label_55->setText(QApplication::translate("MainWindow", "d", nullptr));
+        tabWidget_4->setTabText(tabWidget_4->indexOf(widget2), QApplication::translate("MainWindow", "Graph4", nullptr));
         tabWidget_3->setTabText(tabWidget_3->indexOf(tab_11), QApplication::translate("MainWindow", "VarLinguistica2", nullptr));
+        pushButton_2->setText(QApplication::translate("MainWindow", "Establecer", nullptr));
     } // retranslateUi
 
 };
